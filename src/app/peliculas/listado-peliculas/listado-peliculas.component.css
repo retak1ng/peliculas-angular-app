@@ -1,0 +1,43 @@
+
+.listaPeliculas {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.p-div {
+    position: relative;
+    padding: 1em;
+    text-align: center;
+    max-width: 200px;
+    border: 1px solid black;
+    margin: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.p-div span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.info {
+    display: none; /* Ocultar por defecto */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    width: 180px;
+    z-index: 10;
+    text-align: left;
+}
+
+.info p {
+    font-weight:lighter;
+}
+
+/* Mostrar solo cuando selectedIndex coincide con el índice */
+.p-div:hover .info {
+    display: block;
+}

@@ -1,0 +1,26 @@
+
+<app-listado-generico [listado]="listaPeliculas">
+    <ng-container contenido>
+        <h1>{{titulo}}</h1>
+        <div class="listaPeliculas">
+            @for (pelicula of listaPeliculas; track $index) {
+            <div class="p-div" (mouseenter)="mostrarInfo.add($index)" (mouseleave)="mostrarInfo.delete($index)">
+                <img [src]="pelicula.imageUrl" style="height: 300px; width: 200px;">
+                <p>{{pelicula.title}}</p>
+                <span>
+                    <mat-icon>star_half</mat-icon>
+                    {{pelicula.rating}}
+                </span>
+                @if (mostrarInfo.has($index)) {
+                    <div class="info">
+                        <p>{{pelicula.description}}</p>
+                        <p><b>Fecha de estreno:</b> {{pelicula.releaseDate}}</p>
+                        <p><b>Director:</b> {{pelicula.director}}</p>
+                        <p><b>Genero:</b> {{pelicula.genre}}</p>
+                    </div>
+                }
+            </div>
+            }
+        </div>
+    </ng-container>
+</app-listado-generico>

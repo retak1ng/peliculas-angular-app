@@ -1,0 +1,19 @@
+<div class="header">
+    <div class="name">
+        <p routerLink="" (click)="onResetClick()">{{name}}</p>
+    </div>
+    <div class="list">
+        <ul>
+            <li (click)="onFiltrarEstreno()">Estrenos</li>
+            <li (click)="onFiltrarMasVista()">Mas vistas</li>
+            <li (click)="onFiltrarTendencia()">Tendencias</li>
+            <li>Categorias</li>
+            <li>Buscar</li>
+        </ul>
+    </div>
+    <div class="admin">
+        <span>
+            <mat-icon routerLink="manage">manage_accounts</mat-icon>
+        </span>
+    </div>
+</div>

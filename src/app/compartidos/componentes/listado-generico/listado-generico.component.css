@@ -1,0 +1,9 @@
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: inherit;
+    padding: 150px 0 150px 0;
+}

@@ -1,0 +1,6 @@
+@if (!isAdmin) {
+    <app-encabezado ></app-encabezado>
+} @else {
+    <app-encabezado-manage></app-encabezado-manage>
+}
+<router-outlet />

@@ -1,0 +1,33 @@
+.header {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.7129186602870814) 33%, rgba(0,212,255,1) 100%);
+    position: sticky;
+    top: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+.header .name p {
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.header .list ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.header .list ul li {
+    cursor: pointer;
+    font-weight:500;
+    color: aliceblue;
+}
+
+.header .admin span {
+    cursor: pointer;
+}
