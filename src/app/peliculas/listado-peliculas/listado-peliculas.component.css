@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.p-div img {
+    box-shadow: 0px 4px 7px rgba(0,0,0,.5);
+}
+
 .p-div span {
     display: inline-flex;
     align-items: center;
