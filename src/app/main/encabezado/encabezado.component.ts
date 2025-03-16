@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { PeliculasService } from '../../services/peliculas.service';
 
+
 @Component({
   selector: 'app-encabezado',
-  imports: [ RouterLink, MatIconModule ],
+  imports: [ReactiveFormsModule, FormsModule , RouterLink, MatIconModule , MatFormFieldModule, MatInputModule],
   templateUrl: './encabezado.component.html',
   styleUrl: './encabezado.component.css'
 })
 export class EncabezadoComponent {
   name: string = "Diagonals Movies"
+  mostrarMenuCategorias: boolean = false;
+  mostrarBuscador: boolean = false;
 
-  constructor(private peliculasService: PeliculasService) {}
+  constructor(private peliculasService: PeliculasService, private elementRef: ElementRef) {}
 
   onFiltrarEstreno() {
     this.peliculasService.filtrarPorEstrenos();
@@ -28,5 +34,24 @@ export class EncabezadoComponent {
 
   onResetClick() {
     this.peliculasService.resetearFiltro();
+  }
+
+  mostrarCategorias() {
+    this.mostrarMenuCategorias = true;
+  }
+
+  ocultarCategorias() {
+    this.mostrarMenuCategorias = false;
+  }
+
+  onMostrarBuscador() {
+    this.mostrarBuscador = true;
+  }
+  
+  @HostListener('document:click', ['$event'])
+  ocultarBuscador(event: Event) {
+    if(this.mostrarBuscador && !this.elementRef.nativeElement.contains(event.target)){
+      this.mostrarBuscador = false;
+    }
   }
 }
