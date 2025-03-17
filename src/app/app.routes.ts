@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { CrearCinesComponent } from './cines/crear-cines/crear-cines.component';
+import { EditarCineComponent } from './cines/editar-cine/editar-cine.component';
 import { IndiceCinesComponent } from './cines/indice-cines/indice-cines.component';
 import { CrearGenerosComponent } from './generos/crear-generos/crear-generos.component';
 import { EditarGeneroComponent } from './generos/editar-genero/editar-genero.component';
@@ -17,6 +18,7 @@ export const routes: Routes = [
     { path: 'manage/generos/editar/:id', component: EditarGeneroComponent},
     { path: 'manage/cines', component: IndiceCinesComponent},
     { path: 'manage/cines/crear', component: CrearCinesComponent},
+    { path: 'manage/cines/editar/:id', component: EditarCineComponent},
     { path: 'manage/peliculas/crear', component: CrearPeliculasComponent},
     { path: '**', redirectTo: ''}
 ];

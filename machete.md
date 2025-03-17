@@ -18,3 +18,36 @@ provideRouter(routes, withComponentInputBinding())
 //en app.routes.ts
 { path: 'manage/generos/editar/:id', component: EditarGeneroComponent}
 ```
+
+## Usar un mapa para seleccionar la ubicación
+Instalar 
+```typescript
+npm i leaflet
+
+npm i @bluehalo/ngx-leaflet
+
+npm i --save-dev @types/leaflet
+```
+
+angular.json:
+```json
+"architect":{
+  "build": {
+    ...,  
+    "options":{
+      ...,
+      "assets": [
+        ..., {
+          "glob": "**/*",
+          "input": "./node_modules/leaflet/dist/images",
+          "output": "assets/"
+        }
+      ],
+      "styles": [
+        ...,
+        ".node_modules/leaflet/dist/leaflet.css"
+      ],
+    },
+  },
+},
+```
