@@ -10,9 +10,14 @@ import { FormularioCinesComponent } from "../formulario-cines/formulario-cines.c
 })
 export class EditarCineComponent {
   @Input({transform: numberAttribute})
-  id!: number;
+  id! : number;
 
-  cine: CineDTO = { id: 1, nombre: 'Cinema La Plata', latitud: -34.91693849113268, longitud: -57.94936611510867}
+  cine: CineDTO = { 
+    id: 1, 
+    nombre: 'Cinema La Plata', 
+    latitud: -34.91693849113268, 
+    longitud: -57.94936611510867
+  }
 
   guardarCambios(cine: CineCreacionDTO){
     console.log('Editar Cine: ', cine)

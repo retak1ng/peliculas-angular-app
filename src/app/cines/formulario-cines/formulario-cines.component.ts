@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { Coordenada } from '../../compartidos/componentes/mapa/Coordenada';
 import { MapaComponent } from "../../compartidos/componentes/mapa/mapa.component";
-import { CineCreacionDTO } from '../cines';
+import { CineCreacionDTO, CineDTO } from '../cines';
 
 @Component({
   selector: 'app-formulario-cines',
@@ -23,7 +23,7 @@ export class FormularioCinesComponent implements OnInit{
   }
 
   @Input()
-  modelo?: CineCreacionDTO;
+  modelo?: CineDTO;
 
   @Output()
   posteoFormulario = new EventEmitter<CineCreacionDTO>();
@@ -33,7 +33,7 @@ export class FormularioCinesComponent implements OnInit{
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
-    nombre: ['',{validators: [Validators.required]}],
+    nombre: ['', {validators: [Validators.required]}],
     latitud: new FormControl<number | null>(null, [Validators.required]),
     longitud: new FormControl<number | null>(null, [Validators.required])
   })

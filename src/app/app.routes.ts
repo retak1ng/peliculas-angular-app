@@ -8,6 +8,9 @@ import { IndiceGenerosComponent } from './generos/indice-generos/indice-generos.
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManagePageComponent } from './manage-page/manage-page.component';
 import { CrearPeliculasComponent } from './peliculas/crear-peliculas/crear-peliculas.component';
+import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
+import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
+import { IndicePeliculasComponent } from './peliculas/indice-peliculas/indice-peliculas.component';
 
 
 export const routes: Routes = [
@@ -19,6 +22,9 @@ export const routes: Routes = [
     { path: 'manage/cines', component: IndiceCinesComponent},
     { path: 'manage/cines/crear', component: CrearCinesComponent},
     { path: 'manage/cines/editar/:id', component: EditarCineComponent},
+    { path: 'manage/peliculas', component: IndicePeliculasComponent},
     { path: 'manage/peliculas/crear', component: CrearPeliculasComponent},
+    { path: 'manage/peliculas/editar/:id', component: EditarPeliculaComponent},
+    { path: 'manage/peliculas/filtrar', component: FiltroPeliculasComponent},
     { path: '**', redirectTo: ''}
 ];
