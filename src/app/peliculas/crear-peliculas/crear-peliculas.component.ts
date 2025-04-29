@@ -1,40 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { MostrarErroresComponent } from "../../compartidos/componentes/mostrar-errores/mostrar-errores.component";
 import { SelectorMultipleDTO } from '../../compartidos/componentes/selector-multiple/SelectorMultipleModelo';
+import { extraerErrores } from '../../compartidos/funciones/extraerErrores';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
 import { PeliculaCreacionDTO } from '../peliculas';
+import { PeliculasService } from '../peliculas.service';
 
 @Component({
   selector: 'app-crear-peliculas',
-  imports: [FormularioPeliculasComponent],
+  imports: [FormularioPeliculasComponent, MostrarErroresComponent],
   templateUrl: './crear-peliculas.component.html',
   styleUrl: './crear-peliculas.component.css'
 })
 export class CrearPeliculasComponent {
 
-  generosSeleccionados: SelectorMultipleDTO[] = [
-    
-  ];
+  generosSeleccionados: SelectorMultipleDTO[] = [];
 
-  generosNoSeleccionados: SelectorMultipleDTO[] = [
-    { llave: 1, valor: 'Action' },
-    { llave: 2, valor: 'Comedy' },
-    { llave: 3, valor: 'Terror' },
-    { llave: 4, valor: 'Drama' },
-    { llave: 5, valor: 'Documental' },
-    { llave: 6, valor: 'Ciencia Ficcion' }
-  ];
+  generosNoSeleccionados: SelectorMultipleDTO[] = [];
 
-  cinesSeleccionados: SelectorMultipleDTO[] = [
-    
-  ];
+  //cinesSeleccionados: SelectorMultipleDTO[] = [];
 
-  cinesNoSeleccionados: SelectorMultipleDTO[] = [
-    { llave: 1, valor: 'City' },
-    { llave: 2, valor: 'Rocha' },
-    { llave: 3, valor: 'San Martin' },
-  ];
+  //cinesNoSeleccionados: SelectorMultipleDTO[] = [];
+  peliculasService = inject(PeliculasService);
+  router = inject(Router);
+  errores: string[] = [];
+  constructor() {
+    this.peliculasService.crearGet().subscribe(modelo => {
+      this.generosNoSeleccionados = modelo.generos.map(genero => {
+        return <SelectorMultipleDTO>{ llave: genero.id, valor: genero.nombre };
+      });
+      //this.cinesNoSeleccionados = respuesta.cines.map(cine => {
+      //  return { llave: cine.id, valor: cine.nombre };
+      //});
+    });
+  }
 
   guardarCambios(pelicula: PeliculaCreacionDTO) {
-    console.log('Creando pelicula',pelicula);
+    this.peliculasService.crear(pelicula).subscribe({
+      next: pelicula => {
+        console.log(pelicula);
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error(error);
+        const errores = extraerErrores(error);
+        this.errores = errores;
+      }
+    });
   }
 }

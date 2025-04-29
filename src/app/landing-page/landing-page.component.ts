@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ListadoPeliculasComponent } from "../peliculas/listado-peliculas/listado-peliculas.component";
-import { PeliculasService } from '../services/peliculas.service';
+import { PeliculasService } from '../peliculas/peliculas.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,16 +8,21 @@ import { PeliculasService } from '../services/peliculas.service';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent implements OnInit{
+export class LandingPageComponent{
   
-  constructor(private peliculasService: PeliculasService) {}
+  peliculasService = inject(PeliculasService);
+  constructor() {
+    this.cargarPeliculas();
+  }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.peliculasService.peliculas$.subscribe(peliculas => {
-        this.listaPeliculas = peliculas;
-      })
-    }, 3000);
+  peliculaBorrada() {
+    this.cargarPeliculas();
+  }
+
+  cargarPeliculas() {
+    this.peliculasService.obtenerLandingPage().subscribe(modelo => {
+      this.listaPeliculas = modelo.todasLasPeliculas;
+    });
   }
 
   listaPeliculas! : any[];

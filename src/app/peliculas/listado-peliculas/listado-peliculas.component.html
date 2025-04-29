@@ -1,7 +1,6 @@
 
 <app-listado-generico [listado]="listaPeliculas">
     <ng-container contenido>
-        <h1>{{titulo}}</h1>
         <div class="listaPeliculas">
             @for (pelicula of listaPeliculas; track $index) {
             <div class="p-div" (mouseenter)="mostrarInfo.add($index)" (mouseleave)="mostrarInfo.delete($index)">
@@ -19,6 +18,10 @@
                         <p><b>Genero:</b> {{pelicula.genre}}</p>
                     </div>
                 }
+                <div>
+                    <a mat-flat-button [routerLink]="['/manage/peliculas/editar', pelicula.id]">Editar</a>
+                    <button mat-flat-button type="button" color="warn" [swal]="{title: 'Confirmación', text: '¿Deseas borrar el registro?', showCancelButton: true}" (confirm)="borrar(pelicula.id)">Borrar</button>
+                </div>
             </div>
             }
         </div>

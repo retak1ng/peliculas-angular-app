@@ -1,6 +1,6 @@
 .header {
-    height: 50px;
-    background-color: cornflowerblue;
+    height: 100px;
+    background: #5994d7;
     position: sticky;
     top: 0;
     display: flex;
@@ -11,12 +11,20 @@
 
 .header .name {
     cursor: default;
+    font-weight: 500;
+    color: #13233e;
 }
 
 .header .list ul button{
     margin: 10px;
+    background-color: #e5edf9;
+    color: #13233e;
+    border: 1px solid #c6d8f1;
+    font-weight: 400;
+    
 }
 
 .header .main span{
     cursor: pointer;
+    color: #13233e;
 }

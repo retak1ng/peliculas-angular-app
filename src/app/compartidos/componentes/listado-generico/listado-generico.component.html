@@ -4,7 +4,7 @@
             <ng-content select="[cargando]"></ng-content>
         </div>
         @if (!cargando.innerHTML.trim()) {
-            <img src="loading.gif" />
+            <img src="loading.gif" alt="Cargando..." />
         }
     }
     @else if (listado.length === 0) {
@@ -14,7 +14,8 @@
         @if (!vacio.innerHTML.trim()) {
             <p>No hay elementos disponibles.</p>
         }
-    } @else {
+    } 
+    @else {
         <ng-content select="[contenido]"></ng-content>
     }
 </div>

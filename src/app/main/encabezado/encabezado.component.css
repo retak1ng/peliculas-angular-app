@@ -1,6 +1,8 @@
 .header {
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.7129186602870814) 33%, rgba(0,212,255,1) 100%);
+    background: #5994d7;
+    /*linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.7129186602870814) 33%, rgba(0,212,255,1) 100%);
+    */
     position: sticky;
     top: 0;
     height: 100px;
@@ -14,7 +16,8 @@
 
 .header .name p {
     cursor: pointer;
-    color: aliceblue;
+    font-weight: 500;
+    color: #13233e;
 }
 
 .header .list {
@@ -29,12 +32,13 @@
 
 .header .list ul li {
     cursor: pointer;
-    font-weight:500;
-    color: aliceblue;
+    font-weight:400;
+    color: #13233e;
 }
 
 .header .admin span {
     cursor: pointer;
+    color: #13233e;
 }
 
 .header .list .menuCategorias {
@@ -53,7 +57,7 @@
 }
 
 .header .list .menuCategorias ul li {
-    color: black;
+    color: #13233e;
     padding: 5px;
     border: 1px solid;
     box-shadow: 0px 4px 7px rgba(0,0,0,.5);

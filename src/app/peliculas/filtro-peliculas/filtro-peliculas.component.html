@@ -15,18 +15,24 @@
             }
         </mat-select>
     </mat-form-field>
+<!--
+    
+<div>
+    <mat-checkbox [formControl]="form.controls.proximosEstrenos">Proximos Estrenos</mat-checkbox>
+</div>
 
-    <div>
-        <mat-checkbox [formControl]="form.controls.proximosEstrenos">Proximos Estrenos</mat-checkbox>
-    </div>
+<div>
+    <mat-checkbox [formControl]="form.controls.enCines">En Cines</mat-checkbox>
+</div>
 
-    <div>
-        <mat-checkbox [formControl]="form.controls.enCines">En Cines</mat-checkbox>
-    </div>
+-->
 
     <div>
         <button mat-flat-button color="warn" (click)="limpiar()">Limpiar</button>
     </div>
 </form>
 
-<app-listado-peliculas [listaPeliculas]="peliculasFiltradas"></app-listado-peliculas>
+<app-listado-peliculas [listaPeliculas]="peliculas"></app-listado-peliculas>
+
+<mat-paginator showFirstLastButtons [length]="cantidadTotalRegistros" [pageSize]="paginacion.recordsPorPagina" 
+[pageIndex]="paginacion.pagina" [pageSizeOptions]="[5, 10, 50]" class="mat-elevation-z8" (page)="actualizarPaginacion($event)"></mat-paginator>

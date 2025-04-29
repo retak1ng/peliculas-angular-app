@@ -51,3 +51,9 @@ angular.json:
   },
 },
 ```
+
+## Observable
+```typescript
+public obtenerTodos(): Observable<GeneroDTO[]> {}
+```
+Es muy similiar a una promesa, representa un valor que va a retornar algo en el futuro.
