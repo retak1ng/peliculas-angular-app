@@ -4,12 +4,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
+import { AutorizadoComponent } from "../../seguridad/autorizado/autorizado.component";
 import { PeliculasService } from '../../services/peliculas.service';
 
 
 @Component({
   selector: 'app-encabezado',
-  imports: [ReactiveFormsModule, FormsModule , RouterLink, MatIconModule , MatFormFieldModule, MatInputModule],
+  imports: [ReactiveFormsModule, FormsModule, RouterLink, MatIconModule, MatFormFieldModule, MatInputModule, AutorizadoComponent],
   templateUrl: './encabezado.component.html',
   styleUrl: './encabezado.component.css'
 })

@@ -41,9 +41,13 @@
         }
         
     </div>
-    <div class="admin">
-        <span>
-            <mat-icon routerLink="manage">manage_accounts</mat-icon>
-        </span>
-    </div>
+    <app-autorizado rol="admin">
+        <ng-container autorizado>
+            <div class="admin">
+                <span>
+                    <mat-icon routerLink="manage">manage_accounts</mat-icon>
+                </span>
+            </div>
+        </ng-container>
+    </app-autorizado>
 </div>
