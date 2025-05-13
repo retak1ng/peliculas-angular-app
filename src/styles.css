@@ -8,11 +8,9 @@ li {
     list-style: none;
 }
 html, body { height: 100%; }
-body { 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background: #FFEFBA;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: #000000;  /* fallback for old browsers */
 }
 
 form button {
@@ -36,4 +34,10 @@ mat-form-field {
 
 .indice-elementos a {
     margin-right: 1rem;
+}
+
+app-formulario-autenticacion {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 40%;
 }
