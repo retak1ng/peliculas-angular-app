@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { RouterLink } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 import { ListadoGenericoComponent } from '../../compartidos/componentes/listado-generico/listado-generico.component';
@@ -12,7 +11,7 @@ import { SeguridadService } from '../seguridad.service';
 
 @Component({
   selector: 'app-indice-usuarios',
-  imports: [RouterLink, MatButtonModule, MatTableModule, ListadoGenericoComponent, MatPaginatorModule, SweetAlert2Module],
+  imports: [MatButtonModule, MatTableModule, ListadoGenericoComponent, MatPaginatorModule, SweetAlert2Module],
   templateUrl: './indice-usuarios.component.html',
   styleUrl: './indice-usuarios.component.css'
 })
