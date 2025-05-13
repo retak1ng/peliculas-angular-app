@@ -9,7 +9,9 @@ import { CrearPeliculasComponent } from './peliculas/crear-peliculas/crear-pelic
 import { EditarPeliculaComponent } from './peliculas/editar-pelicula/editar-pelicula.component';
 import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
 import { IndicePeliculasComponent } from './peliculas/indice-peliculas/indice-peliculas.component';
+import { IndiceUsuariosComponent } from './seguridad/indice-usuarios/indice-usuarios.component';
 import { LoginComponent } from './seguridad/login/login.component';
+import { RegistroComponent } from './seguridad/registro/registro.component';
 
 
 export const routes: Routes = [
@@ -27,5 +29,7 @@ export const routes: Routes = [
     { path: 'manage/peliculas/filtrar', component: FiltroPeliculasComponent},
     /*{ path: 'manage/peliculas/:id', component: DetallePeliculaComponent},*/
     { path: 'login', component: LoginComponent},
+    { path: 'registrar', component: RegistroComponent},
+    { path: 'manage/usuarios', component: IndiceUsuariosComponent},
     { path: '**', redirectTo: ''}
 ];

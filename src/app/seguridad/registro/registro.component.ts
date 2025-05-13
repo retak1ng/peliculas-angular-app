@@ -6,18 +6,18 @@ import { CredencialesUsuarioDTO } from '../seguridad';
 import { SeguridadService } from '../seguridad.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-registro',
   imports: [FormularioAutenticacionComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './registro.component.html',
+  styleUrl: './registro.component.css'
 })
-export class LoginComponent {
+export class RegistroComponent {
   seguridadService = inject(SeguridadService);
   router = inject(Router);
   errores: string[] = [];
 
-  loguear(credenciales: CredencialesUsuarioDTO) {
-    this.seguridadService.login(credenciales).subscribe({
+  registrar(credenciales: CredencialesUsuarioDTO) {
+    this.seguridadService.registrar(credenciales).subscribe({
       next: () => {
         this.router.navigate(['/']);
       },

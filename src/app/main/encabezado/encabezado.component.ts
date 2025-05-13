@@ -1,16 +1,18 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { AutorizadoComponent } from "../../seguridad/autorizado/autorizado.component";
+import { SeguridadService } from '../../seguridad/seguridad.service';
 import { PeliculasService } from '../../services/peliculas.service';
 
 
 @Component({
   selector: 'app-encabezado',
-  imports: [ReactiveFormsModule, FormsModule, RouterLink, MatIconModule, MatFormFieldModule, MatInputModule, AutorizadoComponent],
+  imports: [ReactiveFormsModule, FormsModule, RouterLink, MatIconModule, MatFormFieldModule, MatInputModule, AutorizadoComponent, MatButtonModule],
   templateUrl: './encabezado.component.html',
   styleUrl: './encabezado.component.css'
 })
@@ -55,4 +57,6 @@ export class EncabezadoComponent {
       this.mostrarBuscador = false;
     }
   }
+
+  seguridadService = inject(SeguridadService);
 }
